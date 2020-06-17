@@ -17,10 +17,7 @@ class CourseDetail extends Component {
       dataLoading: false,
       show: false,
       productName: '',
-      catIds: '',
-      catData: [],
       showPage: true,
-
       single: [],
     }
   }
@@ -53,37 +50,6 @@ class CourseDetail extends Component {
   //加入購物車 end
 
 
-
-
-  //fetch 商品
-  getItemsData = async () => {
-
-    let currentPage = localStorage.getItem('page') || 1
-    const response = await fetch(
-      `http://localhost:3002/courses/${this.state.catIds}/${currentPage}`
-      //${this.state.catIds}/${currentPage}
-    )
-    console.log(this.state.catIds)
-
-    const json = await response.json()
-    const courses = json.rows
-    const allData = json.allData
-    const totalPages = json.totalPages
-    const totalRows = json.totalRows
-
-    const single = allData[3]
-    // console.log(allData[0])
-
-    this.setState({
-      data: courses,
-      totalPages: totalPages,
-      totalRows: totalRows,
-    })
-    // console.log(totalPages)
-    console.log(this.state.data)
-    return this.state.data
-  }
-
   //單一商品
   getItemsDetail = async () => {
 
@@ -111,17 +77,6 @@ class CourseDetail extends Component {
   }
 
   async componentDidMount() {
-    let params = new URLSearchParams(this.props.location.search)
-    let catIdParams = params.get('categoryId')
-    if (catIdParams) {
-      await this.setState({
-        catIds: (this.state.catIds += catIdParams),
-      })
-
-      // await this.getRecursiveCategoryIds(catIdParams)
-    }
-
-    await this.getItemsData()
     await this.getItemsDetail()
   }
 
@@ -155,33 +110,12 @@ class CourseDetail extends Component {
       </Modal>
     )
 
-
-
     return (
       <div className="container">
         {messageModal}
         <div className="tools">
           <CsMyBreadcrumb />
         </div>
-        {/* {this.state.data.map(course =>( */}
-        {/* <Detail
-              key={this.state.single.courseId}
-              courseImg={this.state.single.courseImg}
-              courseImg2={this.state.single.courseImg2}
-              courseName={this.state.single.courseName}
-              courseDesc={this.state.single.courseDesc}
-              coursePrice={this.state.single.coursePrice}
-              courseQty={this.state.single.courseQty}
-              handleClick={() => {
-                this.updateCartToLocalStorage({
-                  id: this.state.single.courseId,
-                  img: this.state.single.courseImg,
-                  name: this.state.single.courseName,
-                  amount: 1,
-                  price: this.state.single.coursePrice,
-                })
-              }}
-            /> */}
             <div className="item-card">
       <div className="courseDetail-img">
         <img
