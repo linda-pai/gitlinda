@@ -1,0 +1,132 @@
+.Slider {
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position:relative;
+    
+  }
+  .life p{
+    color:rgb(230, 240, 230);
+    font-size:.8rem;
+    display:flex;
+   justify-content:center;
+  }
+
+  .shop p{
+    color:rgb(56, 58, 56);
+    font-size:.8rem;
+    display:flex;
+   justify-content:center;
+  }
+
+  .both p{ 
+     color:rgb(56, 58, 56);
+    font-size:.8rem;
+    display:flex;
+   justify-content:center;
+
+  }
+
+  .both{
+    position:absolute;
+    display:flex;
+    width:70%;
+    top:50;
+    left:50;
+    transform: translate(45%, -250%);
+    font-size:60px;
+  }
+
+  .both .service{
+    display:flex;
+  }
+  .both .ser{
+    text-shadow: -10px 10px 2px #A8B38B,
+                  -18px 8px 5px #9ea883; 
+   color:white;
+   font-size:200%;
+  }
+
+  .both .vice{
+    text-shadow: -10px 10px 2px #BF8C60,
+                 -18px 8px 5px #BF8C60;
+    color:white;
+    font-size:200%;
+    }
+
+
+
+   .button-both{
+    color:white;
+    font-size: 1rem;
+    background: linear-gradient(to right,#919b74 50%,#BF8C60 50%);
+    border:none;
+    border-radius: 2px;
+    width: 50%;
+    position:absolute;
+    top:50;
+    left:50;
+    transform: translate(0%, 800%);
+   }
+
+ 
+
+  .shop{
+    position:absolute;
+    width:35%;
+    top:150%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:60px;
+    
+  }
+  .shop h1{
+   text-shadow: -10px 10px 2px #A8B38B,
+                -18px 8px 5px #9ea883; 
+   color:white;
+   font-size:200%;
+   
+  }
+
+
+  .button-shop{
+    color:white;
+    background-color: #A8B38B;
+    border:none;
+    width: 50%;
+    position:absolute;
+    top:50;
+    left:50;
+    transform: translate(40%, 200%);
+   }
+ 
+
+  .life{
+    position:absolute;
+    width:35%;
+    top:150%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:60px;
+  }
+
+  .life h1{
+    text-shadow: -10px 10px 2px #BF8C60,
+                 -18px 8px 5px #BF8C60;
+    color:white;
+    font-size:200%;
+ 
+   }
+
+   .button-life{
+    color:white;
+    background-color: #BF8C60;
+    border:none;
+    width: 50%;
+    position:absolute;
+    top:50;
+    left:50;
+    transform: translate(40%, 200%);
+   }
+   
