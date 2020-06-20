@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './course-style.css'
 import { withRouter } from "react-router-dom"
 
+
   function Course(props) {
     const[cid ,setCid]=useState("")
     const {
