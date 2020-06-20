@@ -4,6 +4,6 @@
 
 安裝了2個npm~
 
-npm install react-image-comparison-slider
+npm install --save react-compare-image
 
 npm install react-masonry-css
