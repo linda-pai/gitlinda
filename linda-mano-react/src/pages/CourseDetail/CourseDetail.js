@@ -173,6 +173,7 @@ class CourseDetail extends Component {
                 <p>{this.state.single.courseDesc}</p>
                 <div className="people">
                   <p>人數上限：{this.state.single.courseQty}</p>
+                  <p>日期：{this.state.single.coursePeriod}</p>
                 </div>
               </Card.Text>
             </Card.Body>
