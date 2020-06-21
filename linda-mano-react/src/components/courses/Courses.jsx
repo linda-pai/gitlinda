@@ -21,7 +21,7 @@ class Courses extends Component {
       catIds: '',
       catData: [],
       showPage: true,
-      detailKey: '',
+      detailKey : '',
     }
   }
 
@@ -33,12 +33,12 @@ class Courses extends Component {
     // 開啟載入指示
     //setDataLoading(true)
 
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('coursecart')) || []
 
     // console.log('currentCart', currentCart)
 
     const newCart = [...currentCart, value]
-    localStorage.setItem('cart', JSON.stringify(newCart))
+    localStorage.setItem('coursecart', JSON.stringify(newCart))
 
     // console.log('newCart', newCart)
     // 設定資料
@@ -67,25 +67,26 @@ class Courses extends Component {
     return this.state.catData
   }
 
-  //   getRecursiveCategoryIds = async (categoryId) => {
-  //     const output = await this.getCatData(categoryId)
-
-  //     //console.log(output)
-  //     if (output.length > 0) {
-  //       for (let i = 0; i < output.length; i++) {
-  //         await this.setState({
-  //           catIds: (this.state.catIds += `,${output[i]['categoryId']}`),
-  //         })
-  //         await this.getRecursiveCategoryIds(output[i]['categoryId'])
-  //       }
-  //     }
-  // console.log(this.state.catIds)
-  //     return this.state.catIds
-
-  //   }
+//   getRecursiveCategoryIds = async (categoryId) => {
+//     const output = await this.getCatData(categoryId)
+    
+//     //console.log(output)
+//     if (output.length > 0) {
+//       for (let i = 0; i < output.length; i++) {
+//         await this.setState({
+//           catIds: (this.state.catIds += `,${output[i]['categoryId']}`),
+//         })
+//         await this.getRecursiveCategoryIds(output[i]['categoryId'])
+//       }
+//     }
+// console.log(this.state.catIds)
+//     return this.state.catIds
+    
+//   }
 
   //fetch 商品
   getItemsData = async () => {
+
     let currentPage = localStorage.getItem('page') || 1
     const response = await fetch(
       `http://localhost:3002/courses/${this.state.catIds}/${currentPage}`
@@ -114,8 +115,10 @@ class Courses extends Component {
   //   console.log(event.target);
 
   //   const value = event.target.value;
-
+    
+    
   //   this.props.history.push(`/courseDetail?courseId=${value}`)
+   
 
   // }
 
@@ -131,6 +134,7 @@ class Courses extends Component {
     }
 
     await this.getItemsData()
+    
   }
 
   //頁碼
@@ -264,6 +268,8 @@ class Courses extends Component {
       </>
     )
 
+    
+
     return (
       <div className="container">
         {messageModal}
@@ -282,6 +288,9 @@ class Courses extends Component {
           .map((course) => (
             <Course
               key={course.courseId}
+              linkUrl={course.linkUrl}
+              coursePeriod={course.coursePeriod}
+              categoryId={course.categoryId}
               courseId={course.courseId}
               courseImg={course.courseImg}
               courseImg2={course.courseImg2}

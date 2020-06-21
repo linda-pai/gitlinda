@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Courses from '../../components/courses/Courses'
 import CsCategoryBar from '../../components/CsCategoryBar'
-
 import './courseList-style.scss'
 
 import bgSvg from '../../components/bg-pattern.svg'
 import LeftBg from '../../components/courses/LeftBg'
 
 function CourseList(props) {
+  
   const loading = (
     <>
       <div className="d-flex justify-content-center">
@@ -27,10 +27,12 @@ function CourseList(props) {
         <LeftBg />
       </div>
       
+      <div className="container">
       <div className="d-flex align-items-start product-list">
         <CsCategoryBar />
         <Courses />
       </div> 
+      </div>
     </>
   )
 
