@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 function MyBreadcrumb(props) {
-  const [showAll, setShowAll] = useState('visible');
   // useEffect(() => {
   //   if (clickParams) {
   //     setShowAll("visible")
@@ -11,26 +10,29 @@ function MyBreadcrumb(props) {
   const pathlist = [
     '/',
     '/course',
-    '/course/cuisine',
-    '/course/clothes',
-    '/course/life',
-    '/course/limit',
-    '/course/new',
-    '/course/anti',
-    'courseDetail',
+    '/cuisine',
+    '/clothes',
+    '/life',
+    '/limit',
+    '/new',
+    '/anti',
   ]
-  const pathnames = ['首頁', '所有課程', '抹の食', '抹の著', '抹の生活', '期間限定', '手摘專屬體驗', '防疫限定', 
-  '課程列表', 
-]
-
+  const pathnames = ['首頁', '所有課程', '抹の食', '抹の著', '抹の生活', '期間限定', '手摘專屬體驗', '防疫限定']
+// /course/new?categoryId=31
+// /courseDetail/course/new?courseId=8
   // 先找出對應的中文詞
   let locationPathname = props.location.pathname
+  let catUrl = `/${props.match.params.second}/${props.match.params.third}?${props.match.params.fourth}`
 
-
+  // console.log(`${locationPathname}${courseId}`)
   console.log(props)
   // `/product/xxxx` 轉為 `/product`
-  // if (locationPathname.includes('/course')) locationPathname = '/course'
-  // if (locationPathname.includes('/cuisine')) locationPathname = '/cuisine'
+   if (locationPathname.includes('/clothes')) locationPathname = '/clothes'
+   if (locationPathname.includes('/cuisine')) locationPathname = '/cuisine'
+   if (locationPathname.includes('/life')) locationPathname = '/life'
+   if (locationPathname.includes('/limit')) locationPathname = '/limit'
+   if (locationPathname.includes('/new')) locationPathname = '/new'
+   if (locationPathname.includes('/anti')) locationPathname = '/anti'
 
   const index = pathlist.findIndex((v) => v === locationPathname)
 
@@ -52,10 +54,9 @@ const allcourse = (
   </>
 )
 
-const two = (
+const detail = (
   <>
   <ol 
-  // style={{visibility : 'hidden'}}
   className="breadcrumb">
           <li className="breadcrumb-item">
             <Link to="/">首頁</Link>
@@ -67,13 +68,19 @@ const two = (
           >所有課程</a>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            {pathnames[index]}
+          <a 
+          href={catUrl}
+          >{pathnames[index]}</a>
+          </li>
+          <li 
+          className="breadcrumb-item active" aria-current="page">
+            商品內容
           </li>
         </ol>
      </>
 )
 
-const detail = (
+const two = (
   <>
   <ol
    className="breadcrumb">
@@ -84,28 +91,26 @@ const detail = (
             className="breadcrumb-item">
           <a 
           href="/course"
-          >課程列表</a>
+          >所有課程</a>
           </li>
           <li 
           className="breadcrumb-item active" aria-current="page">
-            商品內容
+            {pathnames[index]}
           </li>
         </ol>
   </>
 )
 
 
-
-
 let display;
 
-if(props.location.pathname =="/course"){
-  display = allcourse
-}else{
+if(props.location.pathname === "/course"){
+      display = allcourse
+  }else{
   display = two
 }
 
-if(props.location.pathname =="/courseDetail"){
+if(props.match.params.fourth){
   display = detail
 }
 
