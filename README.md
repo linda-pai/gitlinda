@@ -2,8 +2,7 @@
 
 0623
 
-App.js 
-<Route path="/life/courseDetail/:second?/:third?/:fourth?">
+App.js      <Route path="/life/courseDetail/:second?/:third?/:fourth?">
               <CourseDetail 
               changeBackgroundColorLight={changeBackgroundColorLight}/>
             </Route>
