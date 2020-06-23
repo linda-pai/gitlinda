@@ -1,24 +1,21 @@
 # gitlinda
 
-0621
-mano_react
+0623
 
-CourseDetail有修改～ 
+App.js 
 
---------------------------------------------------
-0620
-mano_react
+ <Route path="/life/courseDetail/:second?/:third?/:fourth?">
+              <CourseDetail 
+              changeBackgroundColorLight={changeBackgroundColorLight}/>
+            </Route>
+            
+------------------------------------------------------------------------------
+Courses -288
 
-基礎功能update~
-（ 加了breadcrumb 因為路徑有改 ，幾乎檔案都有小改～）
+linkUrl={course.linkUrl}
 
---------------------------------------------------
+------------------------------------------------------------------------------
 
-0617
+Course -12
 
-Slider安裝了2個npm~
-
-npm install --save react-compare-image
-
-npm install react-masonry-css
-
+ <div className="item-img"  onClick={() => props.history.push(`/life/courseDetail${props.linkUrl}?courseId=${props.courseId}`)}>
