@@ -3,10 +3,10 @@
 0623
 
 App.    
-(          <Route path="/life/courseDetail/:second?/:third?/:fourth?">
+        Route path="/life/courseDetail/:second?/:third?/:fourth?">
               <CourseDetail 
               changeBackgroundColorLight={changeBackgroundColorLight}/>
-            </Route>             )
+            </Route         
             
 ------------------------------------------------------------------------------
 Courses -288
