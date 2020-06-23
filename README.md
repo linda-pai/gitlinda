@@ -4,7 +4,7 @@
 
 App.js 
 
- <Route path="/life/courseDetail/:second?/:third?/:fourth?">
+<Route path="/life/courseDetail/:second?/:third?/:fourth?">
               <CourseDetail 
               changeBackgroundColorLight={changeBackgroundColorLight}/>
             </Route>
