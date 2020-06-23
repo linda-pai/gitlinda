@@ -2,29 +2,15 @@ import React, { useState, useEffect } from 'react'
 import './course-style.css'
 import { withRouter } from "react-router-dom"
 
+
   function Course(props) {
-    const[cid ,setCid]=useState("")
-    const {
-      courseImg,
-      courseImg2,
-      courseName,
-      courseDesc,
-      courseQty,
-      coursePrice,    
-      handleClick,
-      getDetail,
-      linkUrl,
-      categoryId,
-      coursePeriod,
-
-    } = props
-
-  //  console.log(courseImg2)
+    console.log(props)
+    
   return (
     <div className="item-card" 
     value={props.courseId}  
     >
-      <div className="item-img"  onClick={() => props.history.push(`/courseDetail${props.linkUrl}/categoryId=${props.categoryId}?courseId=${props.courseId}`)}>
+      <div className="item-img"  onClick={() => props.history.push(`/life/courseDetail${props.linkUrl}?courseId=${props.courseId}`)}>
         <img
           src={`/courses/${props.courseImg}`}
           alt={props.courseImg}
@@ -43,10 +29,7 @@ import { withRouter } from "react-router-dom"
         <div className="item-content-left">
           <h3 className="item-name">{props.courseName}</h3>
           <p className="item-description">{props.courseDesc}</p>
-          <div>
-          <p className="item-period">日期：{props.coursePeriod}</p>
           <p className="item-qty">人數上限：{props.courseQty}</p>
-          </div>
         </div>
         <div className="item-content-right">
           <h3 className="item-price">$ {props.coursePrice}</h3>

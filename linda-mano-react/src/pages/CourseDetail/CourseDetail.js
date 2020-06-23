@@ -30,8 +30,8 @@ import CsMyBreadcrumb from '../../components/CsMyBreadcrumb'
 
 
 class CourseDetail extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: [],
       totalPages: '',
@@ -95,7 +95,7 @@ class CourseDetail extends Component {
     const related2 = allData[courseId + 1 ]
     const related3 = allData[courseId + 2 ]
  
-    console.log(related1.linkUrl)
+    console.log(allData)
 
 
     this.setState({
@@ -111,6 +111,7 @@ class CourseDetail extends Component {
   }
 
   async componentDidMount() {
+    this.props.changeBackgroundColorLight()
     await this.getItemsDetail()
   }
 
@@ -133,7 +134,10 @@ class CourseDetail extends Component {
           <Button
             variant="primary"
             onClick={() => {
-              this.props.history.push('/cart')
+              const path = this.props.history.location.pathname
+              if(path.includes("/mall")) this.props.history.push("/mall/cart")
+              else this.props.history.push("/life/cart")
+
             }}
           >
             前往購物車結帳
