@@ -22,6 +22,8 @@ class Courses extends Component {
       catData: [],
       showPage: true,
       detailKey: '',
+      sorted:[],
+      isOldestFirst: true,
     }
   }
 
@@ -176,6 +178,38 @@ class Courses extends Component {
       showPage: false,
     })
   }
+
+  priceToggle = (e) => {
+
+
+    
+    const newData = this.state.data
+    let sortedData = newData
+    this.setState({
+      isOldestFirst: !this.state.isOldestFirst,
+    })
+
+    if(this.state.isOldestFirst){
+      sortedData = newData.sort((a, b) => {
+        if(a.coursePrice > b.coursePrice) return 1;
+        if(a.coursePrice < b.coursePrice) return -1;
+      })
+    }else{
+      sortedData = newData.sort((a, b) => {
+        if(a.coursePrice < b.coursePrice) return 1;
+        if(a.coursePrice > b.coursePrice) return -1;
+    })
+  }
+
+
+
+    console.log(sortedData)
+    this.setState({
+      data: sortedData,
+    })
+
+    }
+
   render() {
     const lists = []
 
@@ -224,9 +258,8 @@ class Courses extends Component {
             variant="primary"
             onClick={() => {
               const path = this.props.history.location.pathname
-              if(path.includes("/mall")) this.props.history.push("/mall/cart")
-              else this.props.history.push("/life/cart")
-
+              if (path.includes('/mall')) this.props.history.push('/mall/cart')
+              else this.props.history.push('/life/cart')
             }}
           >
             前往購物車結帳
@@ -266,14 +299,25 @@ class Courses extends Component {
         </div>
       </>
     )
-
     return (
-      <div className="container">
+      <>
+     
+      <div className="container-course">
         {messageModal}
+       
         <div className="tools">
-          <CsMyBreadcrumb />
+          <CsMyBreadcrumb  />
+          <div className="result">
           {result}
-          <SearchBar onChange={this.onChange} />
+          </div>
+          <div className="input-container">
+            <SearchBar onChange={this.onChange} />
+            <select className="sortor" onChange={this.priceToggle}>
+            <option value="highToLow">篩選</option>
+            <option value="highToLow">價格高至低</option>
+            <option value="lowtoHigh">價格低至高</option>
+          </select>
+        </div>
         </div>
         {this.state.data
           .filter((course) => {
@@ -285,8 +329,8 @@ class Courses extends Component {
           .map((course) => (
             <Course
               key={course.courseId}
-              linkUrl={course.linkUrl}
               courseId={course.courseId}
+              linkUrl={course.linkUrl}
               courseImg={course.courseImg}
               courseImg2={course.courseImg2}
               courseName={course.courseName}
@@ -305,7 +349,6 @@ class Courses extends Component {
               // getDetail={this.getItemsDetail}
             />
           ))}
-
         <ul
           style={{ visibility: this.state.showPage ? 'visible' : 'hidden' }}
           className="page-lists"
@@ -313,8 +356,8 @@ class Courses extends Component {
           {lists}
         </ul>
       </div>
+      </>
     )
   }
 }
-
 export default withRouter(Courses)
