@@ -1,13 +1,10 @@
 # gitlinda
 
-0627 update
+0629 update
 
-MapPage.js/ MapPage.css
+CSS微調～
 
-CourseDetail.js/ courseDetail-style.css
+Courses.js + 頁碼
 
-Courses.js
+data資料夾 json檔更新～
 
-有修改～～～
-
-還有public裡面在～checkbox資料夾有新增圖片
