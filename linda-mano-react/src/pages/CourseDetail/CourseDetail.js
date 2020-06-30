@@ -51,6 +51,7 @@ class CourseDetail extends Component {
       related1: [],
       related2: [],
       related3: [],
+      width:(window.innerWidth),
     }
   }
 
@@ -117,6 +118,10 @@ class CourseDetail extends Component {
   async componentDidMount() {
     this.props.changeBackgroundColorLight()
     await this.getItemsDetail()
+    window.addEventListener("resize", ()=>{
+      let width = window.innerWidth;
+      this.setState({width : width})
+    })
   }
 
   render() {
@@ -161,12 +166,16 @@ class CourseDetail extends Component {
           <Col xs={12} md={12}>
               <Row>
               <Col xs={0} md={2} style={{ marginTop:"-8%", marginRight:"5%" }}>
-              <CsCategoryBar />
+              {this.state.width <= 900 ? (
+                  ''
+                ) : (
+                  <CsCategoryBar />
+                )}
                 </Col>
                 <Col xs={12} md={6}>
-                <div style={{ height:"60%" }}>
+                <div className="img-wrap">
                   <img
-                    style={{ width: '95%', objectFit:'contain', overflow:'hidden' }}
+                    className="detail-top-img"
                     src={`/courses/${this.state.single.courseImg}`}
                     alt={this.state.single.courseImg}
                   />
@@ -175,16 +184,19 @@ class CourseDetail extends Component {
                  
                 </Col>
                 <Col xs={12} md={3}>
-                  <Card style={{ width: '350px', height: '80%' }}>
+                  <Card style={{ width: '350px', height: '100%' }}>
                     <Card.Body>
                       <Card.Title>
                         <h3 className="name">{this.state.single.courseName}</h3>
                       </Card.Title>
-                      <Card.Text>
+                      <Card.Text className="course-card-content">
                         <div className="people">
                           <p>人數上限：{this.state.single.courseQty}</p>
                           <p>日期 : {this.state.single.coursePeriod}</p>
                         </div>
+                        <div className="course-score" style={{ display:"flex" }}><p>抹の度 :&nbsp;</p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div className="course-score" style={{ display:"flex" }}><p>職人推薦 :&nbsp;</p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+
                       </Card.Text>
                     </Card.Body>
 
@@ -285,8 +297,7 @@ class CourseDetail extends Component {
                           <Card.Link
                             href={`/life/courseDetail${this.state.related1.linkUrl}/categoryId=${this.state.related1.categoryId}?courseId=${this.state.related1.courseId}`}>
                             <img
-                              className="course-img-detail"
-                              style={{ height: "50%", objectFit: "cover" }}
+                              className="course-img-detail"  
                               src={`/courses/${this.state.related1.courseImg}`}
                               alt={this.state.related1.courseImg}
                             />
@@ -305,7 +316,6 @@ class CourseDetail extends Component {
                             href={`/life/courseDetail${this.state.related2.linkUrl}/categoryId=${this.state.related2.categoryId}?courseId=${this.state.related2.courseId}`}>
                             <img
                               className="course-img-detail"
-                              style={{ width: "100%", objectFit: "cover"  }}
                               src={`/courses/${this.state.related2.courseImg}`}
                               alt={this.state.related2.courseImg}
                             />
@@ -326,7 +336,6 @@ class CourseDetail extends Component {
                             href={`/life/courseDetail${this.state.related3.linkUrl}/categoryId=${this.state.related3.categoryId}?courseId=${this.state.related3.courseId}`}>
                             <img
                               className="course-img-detail"
-                              style={{ width: "100%", objectFit: "cover"  }}
                               src={`/courses/${this.state.related3.courseImg}`}
                               alt={this.state.related3.courseImg}
                             />
