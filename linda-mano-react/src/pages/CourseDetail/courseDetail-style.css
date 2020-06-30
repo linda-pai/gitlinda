@@ -94,7 +94,7 @@
     
 }
 .people{
-    font-size:1rem;
+    font-size:.8rem;
     margin-top:-10px;
     display:flex;
     justify-content: space-evenly;
@@ -102,6 +102,7 @@
     
 }
 .course-btn{
+    border:#D4AE5C;
     background:#D4AE5C;
 }
 .course-card-content{
@@ -114,5 +115,15 @@
     padding-left: 25px;
 }
 @media screen and (max-width: 1000px) {
-  
+    .detail-top-img{
+        width:70%;
+        height:100%;
+        object-fit:cover;
+       
+    }
+    .course-tools{
+        width:90%;
+        padding:0;
+    }
+    
 }

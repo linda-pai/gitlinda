@@ -159,7 +159,7 @@ class CourseDetail extends Component {
       <>
         <div className="container">
           {messageModal}
-          <div className="tools" style={{ paddingTop: '12px', justifyContent:"center" }}>
+          <div className="course-tools" style={{ paddingTop: '12px', justifyContent:"center" }}>
             <CsMyBreadcrumb />
           </div>
           <Row>
@@ -267,7 +267,7 @@ class CourseDetail extends Component {
                   </Card>
                 </Col>
                 <Col xs={12} md={12} style={{ margin: '2.5% 0' }}>
-                  <h4 style={{ width: '100%' }}><BsFillPlayFill />課程內容</h4>
+                  <h4 style={{ width: '100%' }}><BsFillPlayFill />課程內容</h4><h6>&nbsp;&nbsp;&nbsp;&nbsp;MANO Course</h6>
                   <Card body>
                   從抹茶的淵源歷史到抹茶的品種栽種、製作，到抹茶的沖刷、品嘗方法，三日月茶空間(抹茶體驗課程)，將帶領您體驗抹茶的美妙世界。<br/>
                   課程內容：<br/>
@@ -277,13 +277,13 @@ class CourseDetail extends Component {
                     </Card>
                 </Col>
                 <Col xs={12} md={12} style={{ margin: '2.5% 0' }}>
-                  <h4 style={{ width: '100%' }}><BsFillPlayFill />報名方法</h4>
+                  <h4 style={{ width: '100%' }}><BsFillPlayFill />報名方法</h4><h6>&nbsp;&nbsp;&nbsp;&nbsp;How To Register</h6>
                   <Card body>
                   可電話02-28760995報名，或是粉絲頁私訊報名，或是三日月茶空間現場報名。報名後必須繳清1200元費用，即可完成報名。
                   </Card>
                 </Col>
                 <Col xs={12} md={12} style={{ margin: '2.5% 0' }}>
-                  <h4 style={{ width: '100%' }}><BsFillPlayFill />報名須知</h4>
+                  <h4 style={{ width: '100%' }}><BsFillPlayFill />報名須知</h4><h6>&nbsp;&nbsp;&nbsp;&nbsp;You Must Know</h6>
                   <Card body>每班課程以6～8人為限，滿6人即確定開課，若報名人數未滿6人，則課程取消，費用無息退還；若您報名後臨時有事，上課當日不克前來上課，恕無法退還費用或更改日期，但可以轉讓于別人來上課。當日上課的同學在店內消費或外帶均有九折優惠。</Card>
                 </Col>
                 <Col xs={12} md={12} style={{ margin: '2.5% 0' }}>

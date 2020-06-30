@@ -233,7 +233,7 @@ switch (searchValue) {
                 <option value="中山區">中山區</option>
               </select>
           </div>
-     <Card style={{ marginRight:"10px", width:"20%", height:"20vh" }}>
+     <Card className="cat-fourCat" style={{ width:"20%" }}>
           <h5 className="mapText">全の分類</h5>
           <img 
           className="map-top-img"
@@ -243,7 +243,7 @@ switch (searchValue) {
             setSearchValue("All")
           }}/>
       </Card>
-      <Card style={{ marginRight:"10px", width:"20%", height:"20vh" }}>
+      <Card className="cat-fourCat" style={{ width:"20%" }}>
           <h5 className="mapText">小型聚會</h5>
           <img 
           className="map-top-img"
@@ -254,7 +254,7 @@ switch (searchValue) {
           }}
           />  
        </Card>
-       <Card style={{ marginRight:"10px", width:"20%", height:"20vh" }}>
+       <Card className="cat-fourCat" style={{ width:"20%" }}>
            <h5 className="mapText">抹茶專門</h5>
             <img 
             className="map-top-img"
@@ -265,7 +265,7 @@ switch (searchValue) {
             }}
           />
        </Card>
-       <Card style={{ marginRight:"10px", width:"20%", height:"20vh" }}>
+       <Card className="cat-fourCat" style={{ width:"20%" }}>
           <h5 className="mapText">抹の推薦</h5>
           <img 
           className="map-top-img"
@@ -295,9 +295,10 @@ switch (searchValue) {
           onClose={() => {
             setActivePark(null);
           }}
+          style={{ width:"90%" }}
         >
           <div style={{ width:"100%"}}>
-            <h6>{activePark.properties.NAME}</h6>
+            <h6 className="map-title-name">{activePark.properties.NAME}</h6>
             <div style={{ width:"200px", height:"120px"}}>
             <img style={{ width:"100%", height:"100%", objectFit:"cover"}} src={activePark.properties.PICTURE_LI}></img>
             </div>
@@ -323,8 +324,8 @@ switch (searchValue) {
               <a href={park.properties.WEBSITE}  style={{ width:"100vh", height:"40vh"}}>
              <Card style={{ marginRight:"10px", height:"90%" }}>
                  <div className="cardText">
-                    <Card.Text style={{ fontSize:".8rem" }}>{park.properties.NAME}</Card.Text>
-                    <p style={{ fontSize:".8rem", color:"#5c6447" }}>{park.properties.FACILITY}</p>
+                    <Card.Text style={{ fontSize:"1rem" }}>{park.properties.NAME}</Card.Text>
+                    <p style={{ fontSize:".8rem", color:"#5c6447", marginTop:"-5px" }}>{park.properties.FACILITY}</p>
                   </div>
                     <Image style={{ overflow:"hidden", height:"90%", objectFit:"cover" }} className="infoImg" src={park.properties.PICTURE_LI}/>
               </Card>
